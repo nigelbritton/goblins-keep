@@ -1,0 +1,584 @@
+{
+    "version": "v0.1c",
+    "objects": [
+        {
+            "id": "ff1e3962af2668407b54b38a8a65f30f",
+            "name": "Copper Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 1
+        },
+        {
+            "id": "41929e319812d7f272e18cea28eb74b9",
+            "name": "Tin Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 6
+        },
+        {
+            "id": "315b19190f9783175e0b11112d948687",
+            "name": "Sunstone",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 7
+        },
+        {
+            "id": "2ce32a7089f595d3b0a62d5e7679b9da",
+            "name": "Zinc Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 9
+        },
+        {
+            "id": "a1b97edc1a72ab1252ed75a4241a657d",
+            "name": "Obsidian",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 10
+        },
+        {
+            "id": "aad2d83ea642bd5d9c305edaf5fcd6f9",
+            "name": "Lapis Lazuli",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 10
+        },
+        {
+            "id": "f33a7334950954a75fbbbf57a38027e9",
+            "name": "Iron Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 14
+        },
+        {
+            "id": "da855ac25bb70fef4e57ad46e91efb75",
+            "name": "Malachite",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 16
+        },
+        {
+            "id": "a687c47504c70368c70ed3ad9354b8a6",
+            "name": "Fluorite",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 17
+        },
+        {
+            "id": "cab63ce8f3c3d026e6317947b8871f7b",
+            "name": "Sphene",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 17
+        },
+        {
+            "id": "be8e9837b0b9948640c322309ef89ee9",
+            "name": "Dunburite",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 18
+        },
+        {
+            "id": "ace22df4032f05e59e9d5119e6635afe",
+            "name": "Silver Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 25
+        },
+        {
+            "id": "b56075ca05962a2abcd80c85732396ab",
+            "name": "Wyvern Obsidian",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 28
+        },
+        {
+            "id": "9a1d4889c6f94364db18eafe67a48edb",
+            "name": "Garnet",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 31
+        },
+        {
+            "id": "f58a71e675322aa17a15897b0177a4b8",
+            "name": "Heliodor",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 32
+        },
+        {
+            "id": "4ff1760313a1e9305dc3836bb2d0fc30",
+            "name": "Goshenite",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 33
+        },
+        {
+            "id": "dc874917643d4156f36068d5b2da22ba",
+            "name": "Peridot",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 33
+        },
+        {
+            "id": "4afc15778accbe08aac965a3f1191a3b",
+            "name": "Mythril Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 34
+        },
+        {
+            "id": "fe416e992e1bd49ab3ad5db9bff86ea3",
+            "name": "Amethyst",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 34
+        },
+        {
+            "id": "d5dd512e6db37422764c35bd84e7ccac",
+            "name": "Aquamarine",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 35
+        },
+        {
+            "id": "f46be2c589ea95a61880979ba7f23156",
+            "name": "Tourmaline",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 36
+        },
+        {
+            "id": "81bf7100951868abaceb10a6507e28bb",
+            "name": "Spinel",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 37
+        },
+        {
+            "id": "c6f0de2242222f1306fbc3ca79ac395f",
+            "name": "Quicksilver Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 38
+        },
+        {
+            "id": "16bfb775e1cc0962bf72c24f782559e9",
+            "name": "Zircon",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 38
+        },
+        {
+            "id": "101222f5de28a8ada8477a7dd32d01ac",
+            "name": "Jade",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 39
+        },
+        {
+            "id": "d5549b0e86e2cc7d14001cc4cdd5f78c",
+            "name": "Orichalcum Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 40
+        },
+        {
+            "id": "da3a4f0a911cebe3bc75f6e39c324696",
+            "name": "Turquoise",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 41
+        },
+        {
+            "id": "9e7787b46695a37e95eaf05bf4bfe6e6",
+            "name": "Electrum Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 43
+        },
+        {
+            "id": "88068e33c78eb72f1b371c7110846085",
+            "name": "Amber",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 44
+        },
+        {
+            "id": "78aee1e940428c8f9ed1a6227cde5270",
+            "name": "Rubellite",
+            "group": "Mining",
+            "type": "Gem",
+            "levelRequired": 45
+        },
+        {
+            "id": "1702ad1e1104b756d4ef756f5382a1c8",
+            "name": "Cobalt Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "levelRequired": 47
+        },
+        {
+            "id": "f4acbd80947ce0386276c67dd5dc62b6",
+            "name": "Gold Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "37a9e896b2f572b6ca7bfd0c160093e6",
+            "name": "Darksteel Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "8c86dff96983e9bba263a55f5c71dfec",
+            "name": "Platinum Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "d8678688837b857d2c18c961fc876e01",
+            "name": "Moonstone",
+            "group": "Mining",
+            "type": "Gem",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "3a9f25d18a8bb49fdbee1450ecc7d1a7",
+            "name": "Ebony Ore",
+            "group": "Mining",
+            "type": "Ore",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "9916d1fc59fe22cc046a2fe1615bc764",
+            "name": "Ruby",
+            "group": "Mining",
+            "type": "Gem",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "8f7671185d590914ac21c7511767b699",
+            "name": "Diamond",
+            "group": "Mining",
+            "type": "Gem",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "0b6e98d660e2901c33333347da37ad36",
+            "name": "Emerald",
+            "group": "Mining",
+            "type": "Gem",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "aedb17404b59a80742728c49d703f25c",
+            "name": "Topaz",
+            "group": "Mining",
+            "type": "Gem",
+            "rare": true,
+            "levelRequired": 50
+        },
+        {
+            "id": "bdf7ad23e89b55f904bca0304819309e",
+            "name": "Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 1
+        },
+        {
+            "id": "debaf37ac6934d501d6af6598dfab20d",
+            "name": "Hard Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 10
+        },
+        {
+            "id": "a84eb392ea2076e4440c467e038011c6",
+            "name": "Aldgoat Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 16
+        },
+        {
+            "id": "93823f2c9532d19abac056eda8dec9a8",
+            "name": "Boar Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 34
+        },
+        {
+            "id": "dff2b8f2a772c02eabd5c8b0c5d243e7",
+            "name": "Peiste Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 39
+        },
+        {
+            "id": "0b51e324151e5870a5446aeba50e5ae7",
+            "name": "Raptor Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 43
+        },
+        {
+            "id": "8dcf083e4c2358b61b0c4f41c3833764",
+            "name": "Hippograph Leather",
+            "group": "Hunting",
+            "type": "Leather",
+            "levelRequired": 47
+        },
+        {
+            "id": "66b77d3d702abf83594e16eaa1915a33",
+            "name": "Arrowwood Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 1
+        },
+        {
+            "id": "14ef033a8dbf84a0846bd44c6c8d447e",
+            "name": "Maple Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 5
+        },
+        {
+            "id": "49d490c39599bded64872d53961c7af5",
+            "name": "Ash Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 8
+        },
+        {
+            "id": "b211f0954faf04301738a2030a7bebba",
+            "name": "Elm Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 13
+        },
+        {
+            "id": "2965a71db0ecf14cfcd69073a4869ed5",
+            "name": "Yew Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 19
+        },
+        {
+            "id": "ff033eebd10473dd3f9cbd41e0e2dd09",
+            "name": "Walnut Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 26
+        },
+        {
+            "id": "08af97484653ac4db5993b681e023317",
+            "name": "Oak Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 26
+        },
+        {
+            "id": "757e4f68153bb1203f45d1970e31b440",
+            "name": "Mahogany Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 43
+        },
+        {
+            "id": "cc38544eabe8340651353459c2590990",
+            "name": "Rosewood Log",
+            "group": "Logging",
+            "type": "Log",
+            "levelRequired": 46
+        },
+        {
+            "id": "dc0a587dbd2c8d379a1327ab49c587d9",
+            "name": "Spruce Log",
+            "group": "Logging",
+            "type": "Log",
+            "rare": true,
+            "levelRequired": 50
+        }
+    ],
+    "tasks": [
+        {
+            "id": "efdd60c5f1997dc427101df42ff74cf2",
+            "duration": 60,
+            "name": "Mining",
+            "rewardGroup": [
+                "Mining"
+            ]
+        },
+        {
+            "id": "8db7df66ab1d7ab5f1dc947acdb5fae4",
+            "duration": 60,
+            "name": "Logging",
+            "rewardGroup": [
+                "Logging"
+            ]
+        },
+        {
+            "id": "bdf2e45b317c45851fb8b3bd1b308476",
+            "duration": 60,
+            "name": "Hunting",
+            "rewardGroup": [
+                "Hunting"
+            ]
+        },
+        {
+            "id": "1819001b72329e2ef5799fe504238035",
+            "duration": 180,
+            "name": "Explore",
+            "rewardGroup": []
+        },
+        {
+            "id": "71e79ef80600d398d90cfebe3b0b758d",
+            "duration": 180,
+            "name": "Scout",
+            "rewardGroup": []
+        },
+        {
+            "id": "af75d3d1afa505a98b359231901fddb0",
+            "duration": 600,
+            "name": "Upgrade Storage",
+            "rewardGroup": []
+        },
+        {
+            "id": "726d55534fb95423049c1cecccc287c8",
+            "duration": 600,
+            "name": "Upgrade Defence",
+            "rewardGroup": []
+        },
+        {
+            "id": "778d7f55795e848b6fdef0cd2c8ae7d6",
+            "duration": 600,
+            "name": "Forage",
+            "rewardGroup": [
+                "Mining",
+                "Logging",
+                "Hunting"
+            ]
+        }
+    ],
+    "quests": [
+        {
+            "id": "c3ba48ce933ab321c6877a94fa9a80ae",
+            "type": "Logging",
+            "title": "A bounty of arrows",
+            "description": "Collect x12 arrowwood logs",
+            "requiredLevel": 1,
+            "requiredQuests": [],
+            "requiredItems": {
+                "id": "66b77d3d702abf83594e16eaa1915a33",
+                "quantity": 12
+            },
+            "reward": {
+                "experience": {
+                    "type": "Logging",
+                    "value": 100
+                },
+                "items": []
+            }
+        },
+        {
+            "id": "9004759f28f467225c067ff8d80ee3f4",
+            "type": "Mining",
+            "title": "Pots and Pans",
+            "description": "Collect x12 Copper Ore",
+            "requiredLevel": 1,
+            "requiredQuests": [],
+            "requiredItems": {
+                "id": "ff1e3962af2668407b54b38a8a65f30f",
+                "quantity": 12
+            },
+            "reward": {
+                "experience": {
+                    "type": "Mining",
+                    "value": 100
+                },
+                "items": []
+            }
+        },
+        {
+            "id": "ffcd3b564328823cb624f42633f82174",
+            "type": "Mining",
+            "title": "Shiny Armour",
+            "description": "Collect x24 Copper Ore",
+            "requiredLevel": 1,
+            "requiredQuests": [
+                "9004759f28f467225c067ff8d80ee3f4"
+            ],
+            "requiredItems": {
+                "id": "ff1e3962af2668407b54b38a8a65f30f",
+                "quantity": 24
+            },
+            "reward": {
+                "experience": {
+                    "type": "Mining",
+                    "value": 100
+                },
+                "items": []
+            }
+        }
+    ],
+    "settings": {
+        "exploreLevelRequirementOffset": 5,
+        "questLevelRequirementOffset": 2,
+        "taskQueueLimit": 5,
+        "expLimit": [
+            0,
+            300,
+            600,
+            1100,
+            1700,
+            2300,
+            4200,
+            6000,
+            7350,
+            9930,
+            11800,
+            15600,
+            19600,
+            23700,
+            26400,
+            30500,
+            35400,
+            40500,
+            45700,
+            51000,
+            56000,
+            63900,
+            71400,
+            79100,
+            87100,
+            95200,
+            109800,
+            124800,
+            140200,
+            155900,
+            162500,
+            175900,
+            189600,
+            203500,
+            217900,
+            232320,
+            249900,
+            267800,
+            286200,
+            304900
+        ],
+        "maxExperienceLevel": 20
+    },
+    "updated": 1476186584
+}

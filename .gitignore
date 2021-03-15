@@ -1,3 +1,6 @@
+# ignore old content
+/_legacy
+
 # Logs
 logs
 *.log
