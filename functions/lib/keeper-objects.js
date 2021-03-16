@@ -10,7 +10,10 @@ module.exports.getObjectById = async function (objectId) {
 
 /**
  *
- * @param {null|object} filter
+ * @param {object} filter
+ * @param {string} filter.field
+ * @param {string} filter.compare
+ * @param {string} filter.value
  * @returns
  */
 module.exports.getObjects = async function (filter) {

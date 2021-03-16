@@ -126,6 +126,30 @@ routes.get("/objects", async function (req, res) {
     res.send(payloadInfo);
 });
 
+routes.post("/objects", async function (req, res) {
+    const decodedToken = res.locals.decodedToken;
+    const decodedBody = req.body;
+
+    const parsedBody = Object.assign({ group: '' }, decodedBody);
+
+    let payloadInfo = {
+        version: process.env.npm_package_version,
+        status: 'ERROR',
+        updated: new Date().getTime(),
+    };
+
+    if (decodedToken) {
+        payloadInfo.status = 'OK';
+        if (parsedBody.group === '') {
+            payloadInfo.data = await getObjects(false);
+        } else {
+            payloadInfo.data = await getObjects({ field: 'group', compare: '==', value: parsedBody.group });
+        }
+    }
+
+    res.send(payloadInfo);
+});
+
 routes.get("/queue", async function (req, res) {
     const decodedToken = res.locals.decodedToken;
 

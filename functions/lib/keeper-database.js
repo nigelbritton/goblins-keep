@@ -334,7 +334,7 @@ module.exports.completeActionInQueue = async function (queue) {
         await updateProfileWithGatheringReward(rewardObject);
     }
 
-    // const doc = await db.collection('queue').doc(queueDocument.id).delete();
+    const doc = await db.collection('queue').doc(queueDocument.id).delete();
 
     return rewardObject;
 }
@@ -380,7 +380,10 @@ module.exports.getObjectById = async function (id) {
 }
 
 /**
- * @param {null|object} filter
+ * @param {object} filter
+ * @param {string} filter.field
+ * @param {string} filter.compare
+ * @param {string} filter.value
  *
  * @return promise
  */
