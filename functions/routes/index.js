@@ -8,6 +8,7 @@ const { getQueue, addActionToQueue, completeActionInQueue } = require("../lib/ke
 const { getObjects, importObjects } = require("../lib/keeper-objects");
 const { verifyIdToken } = require("../lib/keeper-auth");
 const { createAccount } = require("../lib/keeper-account");
+const { getLocationByUserId } = require("../lib/keeper-locations");
 const { validateToken } = require("../lib/utils");
 
 const useAnonymousAccounts = true;

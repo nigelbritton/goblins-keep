@@ -493,12 +493,12 @@ module.exports.createProfile = async function (profileData) {
         document = Object.assign(doc.data(), { id: doc.id });
     });
 
-    profileData.location = document.id;
+    profileData.location = document;
     profileData.travel = false;
 
     const doc = await db.collection('profiles').add(profileData);
 
-    return Object.assign({ id: document.id }, profileData);
+    return Object.assign({ id: doc.id }, profileData);
 }
 
 /**
