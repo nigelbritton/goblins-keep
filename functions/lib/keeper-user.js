@@ -102,7 +102,7 @@ module.exports.getProfileById = async function (userId, profileId) {
     const profileDocument = await getProfileById(profileId);
 
     // check profile belongs to that user
-    if (profileDocument.userId !== userId) {
+    if (!profileDocument || profileDocument.userId !== userId) {
         return false;
     }
 

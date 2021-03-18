@@ -2,11 +2,15 @@ const path = require("path");
 const express = require("express");
 const routes = express.Router();
 
-const { generateUser, createProfile, getProfiles } = require("../lib/keeper-user");
+const { generateUser, createProfile, getProfiles, getProfileById } = require("../lib/keeper-user");
 const { getActions } = require("../lib/keeper-actions");
 const { getQueue, addActionToQueue, completeActionInQueue } = require("../lib/keeper-queue");
 const { getObjects, importObjects } = require("../lib/keeper-objects");
 const { verifyIdToken } = require("../lib/keeper-auth");
+const { createAccount } = require("../lib/keeper-account");
+const { validateToken } = require("../lib/utils");
+
+const useAnonymousAccounts = true;
 
 const tokenValidator = async function (req, res, next) {
     let idToken = null;
@@ -15,10 +19,18 @@ const tokenValidator = async function (req, res, next) {
     let isValidToken = true;
 
     res.locals.contentMethod = req.headers["content-type"];
+    res.locals.userAddress = req.headers['x-forwarded-for'] ||
+        req.connection.remoteAddress ||
+        req.socket.remoteAddress ||
+        (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
-    if (req.path !== '/status') {
+    if (req.path !== '/status' && req.path !== '/account') {
         idToken = req.headers["token"];
-        res.locals.decodedToken = decodedToken = await verifyIdToken(idToken);
+        if (useAnonymousAccounts) {
+            res.locals.decodedToken = decodedToken = validateToken(idToken);
+        } else {
+            res.locals.decodedToken = decodedToken = await verifyIdToken(idToken);
+        }
 
         if (res.locals.contentMethod !== 'application/json') { isValidRequest = false; }
         if (!decodedToken) { isValidToken = false; }
@@ -56,8 +68,37 @@ routes.get("/status", async function (req, res) {
 });
 
 
-routes.get("/user", async function (req, res) {
+routes.get("/account", async function (req, res) {
+    let payloadInfo = {
+        version: process.env.npm_package_version,
+        status: 'OK',
+        updated: new Date().getTime(),
+    };
+
+    res.send(payloadInfo);
+});
+
+routes.post("/account", async function (req, res) {
+    const decodedParams = req.params;
+    let payloadInfo = {
+        version: process.env.npm_package_version,
+        status: 'OK',
+        updated: new Date().getTime(),
+    };
+
+    payloadInfo.data = await createAccount(decodedParams.email);
+
+    if (payloadInfo.data === false) {
+        delete payloadInfo.data;
+        payloadInfo.status = 'ERROR';
+    }
+
+    res.send(payloadInfo);
+});
+
+routes.get("/user/:profileId", async function (req, res) {
     const decodedToken = res.locals.decodedToken;
+    const decodedParams = req.params;
 
     let payloadInfo = {
         version: process.env.npm_package_version,
@@ -67,7 +108,7 @@ routes.get("/user", async function (req, res) {
 
     if (decodedToken) {
         payloadInfo.status = 'OK';
-        payloadInfo.data = await getProfiles(decodedToken.uid);
+        payloadInfo.data = await getProfileById(decodedToken.uid, decodedParams.profileId);
     }
 
     res.send(payloadInfo);
@@ -81,6 +122,8 @@ routes.post("/user", async function (req, res) {
         status: 'ERROR',
         updated: new Date().getTime(),
     };
+
+    console.log(decodedToken);
 
     if (decodedToken) {
         payloadInfo.status = 'OK';
@@ -234,6 +277,16 @@ routes.get("/actions", async function (req, res) {
     res.send(payloadInfo);
 });
 
+routes.post("/action/:actionId", async function (req, res) {
+    let payloadInfo = {
+        version: process.env.npm_package_version,
+        status: 'OK',
+        updated: new Date().getTime(),
+    };
+
+    res.send(payloadInfo);
+});
+
 routes.get("/quests", async function (req, res) {
     const decodedToken = res.locals.decodedToken;
 
@@ -259,16 +312,24 @@ routes.get("/quests/:typeId", async function (req, res) {
     res.send(payloadInfo);
 });
 
+routes.get("/location", async function (req, res) {
+    const decodedToken = res.locals.decodedToken;
 
-routes.post("/action/:actionId", async function (req, res) {
     let payloadInfo = {
         version: process.env.npm_package_version,
-        status: 'OK',
+        status: 'ERROR',
         updated: new Date().getTime(),
     };
 
+
+    if (decodedToken) {
+        payloadInfo.status = 'OK';
+        payloadInfo.data = await getLocationByUserId(decodedToken.uid);
+    }
+
     res.send(payloadInfo);
 });
+
 
 
 routes.post("/import", async function (req, res) {

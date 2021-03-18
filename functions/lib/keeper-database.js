@@ -1,6 +1,7 @@
 const firebase = require('firebase');
 const admin = require('firebase-admin');
 const { getExperienceLevelGrowth } = require('./keeper-settings');
+const { issueToken } = require('./utils');
 
 const database = require('../db-full.json');
 
@@ -210,6 +211,45 @@ const getGatheringRewardById = async function (objectId, skillLevel) {
         experience: objectExperienceTotal
     };
 }
+
+
+/**
+ * @param {object} queue
+ * @param {string} queue.uid
+ * @param {string} queue.profileId
+ * @param {string} queue.actionId
+ * @param {string} queue.objectId
+ *
+ * @return promise
+ */
+module.exports.createAccount = async function (email) {
+    let accountEmail = email;
+    if (accountEmail && accountEmail !== '') {
+        const accountDocument = await queryCollectionData('accounts', { field: 'email', compare: '==', value: accountEmail });
+        if (!accountDocument.empty) {
+            return false;
+        }
+    } else {
+        accountEmail = 'anonymous-account@anonymous.com';
+    }
+
+    let accountObject = {
+        email: accountEmail,
+        joined: new Date().getTime(),
+        active: new Date().getTime(),
+        verified: false
+    };
+    const doc = await db.collection('accounts').add(accountObject);
+    const accountToken = issueToken({
+        uid: doc.id
+    })
+
+    return Object.assign({}, { token: accountToken });
+}
+
+module.exports.getAccountById = async function (id) { }
+
+module.exports.getAccountByEmail = async function (email) { }
 
 
 /**
@@ -456,7 +496,7 @@ module.exports.createProfile = async function (profileData) {
     profileData.location = document.id;
     profileData.travel = false;
 
-    // const doc = await db.collection('profiles').add(profileData);
+    const doc = await db.collection('profiles').add(profileData);
 
     return Object.assign({ id: document.id }, profileData);
 }
