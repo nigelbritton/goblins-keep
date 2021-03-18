@@ -1,4 +1,4 @@
-const { createProfile, getProfiles } = require("./keeper-database");
+const { createProfile, getProfiles, getProfileById } = require("./keeper-database");
 
 const RACE_NAMES = {
     GOBLIN: {
@@ -82,18 +82,29 @@ module.exports.generateUser = generateUser = function (uid) {
 }
 
 module.exports.generateRandomName = generateRandomName = function () {
-    return RACE_NAMES.GOBLIN.FIRST[Math.floor(Math.random() * RACE_NAMES.GOBLIN.FIRST.length) - 1] +
+    return RACE_NAMES.GOBLIN.FIRST[Math.floor(Math.random() * RACE_NAMES.GOBLIN.FIRST.length)] +
         ' ' +
-        RACE_NAMES.GOBLIN.LAST[Math.floor(Math.random() * RACE_NAMES.GOBLIN.LAST.length) - 1];
+        RACE_NAMES.GOBLIN.LAST[Math.floor(Math.random() * RACE_NAMES.GOBLIN.LAST.length)];
 }
 
 module.exports.createProfile = async function (userId) {
     const userProfile = generateUser(userId);
     const profileDocument = await createProfile(userProfile);
 
-    return userProfile;
+    return profileDocument;
 };
 
 module.exports.getProfiles = async function (userId) {
     return await getProfiles(userId);
+};
+
+module.exports.getProfileById = async function (userId, profileId) {
+    const profileDocument = await getProfileById(profileId);
+
+    // check profile belongs to that user
+    if (profileDocument.userId !== userId) {
+        return false;
+    }
+
+    return profileDocument;
 };
