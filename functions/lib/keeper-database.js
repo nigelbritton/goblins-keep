@@ -67,6 +67,30 @@ const getCollectionDataById = async function (id, collection) {
 }
 
 /**
+ * @param {string} collection
+ * @param {object} query
+ * @param {string} query.field
+ * @param {string} query.compare
+ * @param {string} query.value
+ *
+ * @return promise
+ */
+const queryCollectionData = async function (collection, query) {
+    let snapshot = null;
+    if (!query) {
+        snapshot = await db.collection(collection)
+            .get();
+    } else {
+        snapshot = await db.collection(collection)
+            .where(query.field, query.compare, query.value)
+            .get();
+
+    }
+
+    return snapshot;
+}
+
+/**
  *
  * @param {object} document
  * @returns
@@ -185,30 +209,6 @@ const getGatheringRewardById = async function (objectId, skillLevel) {
         group: objectDetail.group.toLowerCase(),
         experience: objectExperienceTotal
     };
-}
-
-/**
- * @param {string} collection
- * @param {object} query
- * @param {string} query.field
- * @param {string} query.compare
- * @param {string} query.value
- *
- * @return promise
- */
-const queryCollectionData = async function (collection, query) {
-    let snapshot = null;
-    if (!query) {
-        snapshot = await db.collection(collection)
-            .get();
-    } else {
-        snapshot = await db.collection(collection)
-            .where(query.field, query.compare, query.value)
-            .get();
-
-    }
-
-    return snapshot;
 }
 
 
@@ -417,7 +417,7 @@ module.exports.getProfiles = async function (userId) {
     }
 
     snapshot.forEach(doc => {
-        profileList.push(Object.assign({}, doc.data()));
+        profileList.push(Object.assign({ id: doc.id }, doc.data()));
     });
 
     return profileList;
@@ -438,9 +438,27 @@ module.exports.getProfileById = async function (id) {
  * @param {object} profileData
  */
 module.exports.createProfile = async function (profileData) {
-    const doc = await db.collection('profiles').add(profileData);
+    let document = null;
+    const snapshot = await queryCollectionData('locations', {
+        field: 'startingLocation',
+        compare: '==',
+        value: true,
+    });
 
-    return doc.id;
+    if (snapshot.empty) {
+        return [];
+    }
+
+    snapshot.forEach(doc => {
+        document = Object.assign(doc.data(), { id: doc.id });
+    });
+
+    profileData.location = document.id;
+    profileData.travel = false;
+
+    // const doc = await db.collection('profiles').add(profileData);
+
+    return Object.assign({ id: document.id }, profileData);
 }
 
 /**
